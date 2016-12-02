@@ -33,6 +33,7 @@ To get started, you'll need npm installed locally, then clone this repository.
 To get set up: npm install
 To serve up the site locally: npm run serve
 To serve up the site with discoverability: npm run gallery
+```
 
 You can observe it machine-locally via `http://localhost:9090` for testing. This works out-of-the-box
 on OSX, and works in the Ubuntu subsystem on Windows 10 if you (temporarily, of course) disable the Windows Firewall.
@@ -41,5 +42,4 @@ For discoverability to work, you'll need to be running a browser that supports b
 preferably on a device with motion sensors. 
 
 At the moment means [Firefox Nightly on Android.](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly)
-
 
