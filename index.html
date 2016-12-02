@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>William Gibson Overdrive</title>
+    <meta name="description" content="VR experiment with WebGL and FlyWeb"></meta>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js"></script>
+      <script src="js/webvr-polyfill.js"></script>
+      <style>
+        html, body {
+          height: 100%;
+          margin:    0;
+          padding:   0;
+        }
+
+        canvas {
+          position: absolute;
+          top:  0;
+          left: 0;
+
+          width:  100%;
+          height: 100%;
+        }
+
+        #instructions {
+          height: 30%;
+          margin-top: 2em;
+          text-align: center;
+        }
+
+        .hidden { display: none; }
+      </style>
+    </head>
+    <body>
+      <div id="instructions">
+          <center><button id="start"><img src="images/firefox-dev.png"></button></center>
+      </div>
+      <script src="js/main.js"></script>
+  </body>
+</html>
