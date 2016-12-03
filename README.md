@@ -26,6 +26,20 @@ This left them frozen there, the helmet between them. Bobby’s blue eyes loomed
 
 “The fuck is Node?”
 
+### How it works
+
+Runnnig this demo with 
+
+```bash
+npm run gallery
+``` 
+
+demo sets up two things - a web server (the static-server node module) and Flyweb instance advertising it. Flyweb is (among other things) a local-services discovery protocol based on web technologies. You can do a lot of cool stuff with it, but in this case it's effectively a web page that's advertising the presence of another web page. 
+
+If you've got [Firefox Nightly on Android.](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) you can scroll down the menu and see the "Flyweb" option, and the browser will look around the local network and see what services are on offer; if you're running this demo, you'll see "Hello, Invisible World!" on the list. Selecting that will give you a Firefox Developer Edition logo, which in turn will give you a window into a 3D virtual space around you. 
+
+I've hung some of the Mozilla UX team's experiments and prototypes around in that space, so take a look.
+
 ### Installation
 
 To get started, you'll need npm installed locally, then clone this repository.
@@ -44,3 +58,9 @@ preferably on a device with motion sensors.
 
 At the moment means [Firefox Nightly on Android.](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly)
 
+### To Do
+
+- Add motion inside the virtual space and a reasonable controller.
+- Use the phone camera to generate skybox textures, for that poor-man's AR experience.
+- More arts! 
+- A collaborative way of submitting art would be nice.
