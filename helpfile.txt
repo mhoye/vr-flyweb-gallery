@@ -1,0 +1,89 @@
+
+-- VR Flyweb Gallery Documentation -- 
+
+First of all, thank you for trying this out. If you've tried it, done
+something interesting with it or  
+
+Known issues and (if we're lucky!) their solutions are listed at the bottom
+of this document. If you're having problems running this program, that's
+the place to start.
+
+-- Options -- 
+
+This program has a few options.
+
+flyweb:
+	This is invoked by "npm run flyweb", and it turns on the
+	discoverability aspect of the project.	Generally, this means that
+	everyone on a shared subnet will be able to discover and use the
+	shared shared services it offers. In this case, it points to the
+	static web server that the "serve" option sets up.  If you've got
+	Firefox Nightly on Android, you can scroll down the menu and select
+	the "Flyweb" option, and the browser will look around the local
+	network and see what services are on offer; if you're running this
+	demo, you'll see "Hello, Invisible World!" on the list (that name
+	is hardcoded in js/flyweb.js.)
+
+serve:
+	This is a static web server that offers up the VR site. You start
+	it with "npm run serve". It's served from port 9090 (hardcoded in
+	package.json) so to try it out from the machine running it, you can
+	open a browser and give it the URL "localhost:9090". Bear in mind
+	that this will be visible to anyone else on the local network.
+
+
+gallery: 
+	This runs the above flyweb and serve options simultaneously. It's
+	the easiest way to start the whole thing, and (after you've used the
+	"install" option), Should Work (tm).
+
+	If it Doeesn't Work and it's not for one of the reasons listed below,
+	I would be grateful if you could file an issue, as per below.
+
+clean:
+	This deletes all the files in node_modules. I build this feature
+	when I wasn't sure what features or depednencies we'd end up with,
+	and I wanted something equivalent to "make clean" so that I could
+	make sure I understood my dependencies while I was learning about
+	Node and VR. Despite prompting you before proceeding, this option
+	feels _very footgunny_ to me, so please handle this one with care.
+
+fetch-dependencies:
+	This is a helper function you might need to run if you're seeing
+	compile failures in the MDNS Node module. On Debian-based systems,
+	this will install developement libraries you need to compile that
+	module successfully. It will ask you for your local root password
+	before proceeding. If you're not using a Debian derivative, you'll
+	have to figure this part out yourself - please email me if you've,
+	hit this problem and solve it.   
+
+help:
+	Show you this file. Success, I guess?
+
+-- KNOWN ISSUES -- 
+
+The canonical list of issues is here: 
+
+	https://github.com/mhoye/vr-flyweb-gallery/issues
+
+Right now, the big ones are: 
+
+- "npm install" fails while compiling the MDNS node module:
+
+	You'll need the libavahi-compat-libdnssd-dev library on your
+	system. You should be able to sort this out by running "npm run
+	fetch-dependencies" as per above.
+
+- "npm run serve" and "npm run gallery" fail in the Win10 Unix subsystem
+  with errors in node_modules/mdns/lib/advertisement.js:56   
+
+	This error starts with "dns_sd.DNSServiceRegister(self.serviceRef" 
+	and says "Error: dns service error: unknown".
+
+	Sorry, right now I've got nothing. I'm working on it; if you figure
+	it out, email me.
+
+Thanks again.
+
+- mhoye 
+

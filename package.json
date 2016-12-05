@@ -1,18 +1,19 @@
 {
   "name": "vr-flyweb-gallery",
-  "version": "3.0.1",
-  "description": "Demo of a discoverable WebVR gallery with WebVR and Flyweb.",
+  "version": "0.1.0",
+  "description": "Demo of a discoverable VR gallery with WebVR and Flyweb.",
   "dependencies": {
-    "node": "latest", 
     "npm-run-all": "latest",
     "static-server": "latest" ,
     "mdns": "latest"
   },
   "scripts": {
+    "help": "less helpfile.txt",
     "flyweb": "node js/flyweb.js",
     "serve": "node js/server.js" ,
-    "clean": "rm -r ./node_modules/",
-    "gallery": "npm-run-all --parallel flyweb serve"
+    "clean": "rm -r -I --one-file-system ./node_modules/",
+    "gallery": "npm-run-all --parallel flyweb serve",
+    "fetch-dependencies": "sudo apt-get install libavahi-compat-libdnssd-dev"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,5 @@
   "bugs": {
     "url": "https://github.com/mhoye/vr-flyweb-gallery/issues"
   },
-  "homepage": "https://github.com/mhoye/vr-flyweb-gallery/issues"
+  "homepage": "https://github.com/mhoye/vr-flyweb-gallery/"
 }
