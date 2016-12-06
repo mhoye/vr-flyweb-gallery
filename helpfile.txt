@@ -50,12 +50,12 @@ clean:
 
 fetch-dependencies:
 	This is a helper function you might need to run if you're seeing
-	compile failures in the MDNS Node module. On Debian-based systems,
-	this will install developement libraries you need to compile that
-	module successfully. It will ask you for your local root password
-	before proceeding. If you're not using a Debian derivative, you'll
-	have to figure this part out yourself - please email me if you've,
-	hit this problem and solve it.   
+	compile failures in the MDNS Node module. On Debian-based systems, this
+	will install the developement libraries and supporting avahi-daemon
+	software you need to compile and run that module successfully. It will
+	ask you for your local root password before proceeding. If you're
+	not using a Debian derivative, you'll have to figure this part out
+	yourself - please email me if you've hit this problem and solve it.
 
 help:
 	Show you this file. Success, I guess?
@@ -80,8 +80,10 @@ Right now, the big ones are:
 	This error starts with "dns_sd.DNSServiceRegister(self.serviceRef" 
 	and says "Error: dns service error: unknown".
 
-	Sorry, right now I've got nothing. I'm working on it; if you figure
-	it out, email me.
+	Sorry, right now I've got nothing. It looks like this is a problem
+	with how the Ubuntu ssubsystem on Windows interacts with the network
+	layer. Which is, as of press time, not so well. I'm working on it;
+	if you figure it out, email me.
 
 Thanks again.
 
