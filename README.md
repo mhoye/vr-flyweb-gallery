@@ -66,3 +66,13 @@ At the moment means [Firefox Nightly on Android.](https://www.mozilla.org/en-US/
 - Use the phone camera to generate skybox textures, for that poor-man's AR experience.
 - More arts! 
 - A collaborative way of submitting art would be nice.
+
+### Thank You
+
+Thank you to Blake Winton, Kannan Vijayan and Vlad Vukecevic for their help and patience getting version 0.1.0 working.
+
+I didn't end up using a lot if it directly, but I learned a lot from Kevin Ngo's work on [AFrame.io](http://aframe.io) while I was working on this.
+
+While this project isn't based on or aimed at on Google's Tango project, I relied on a big chunk of [Archilogic.com's Tango demo code](https://github.com/archilogic-com/tango-web-demo-cubes) to get started, so thanks to them as well for making it available and open-source. There's still a few lines of their code in here, I'm pretty sure. 
+
+
