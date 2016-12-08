@@ -6,6 +6,14 @@
       <script src="js/three.min.js"></script>
       <script src="js/webvr-polyfill.js"></script>
       <style>
+	video {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
         html, body {
           height: 100%;
           margin:    0;
@@ -31,10 +39,6 @@
       </style>
     </head>
     <body>
-      <div id="instructions">
-          <center><button id="start"><img src="images/firefox-dev.png"></button></center>
-      </div>
-      <script src="js/vr-objects.js"></script>
       <script src="js/main.js"></script>
   </body>
 </html>

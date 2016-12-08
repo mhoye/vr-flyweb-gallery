@@ -1,7 +1,4 @@
 
-
-
-
 // Basic scene box - floor, camera, lights. 
 
 // In-scene objects are in vr-objects.js
@@ -11,11 +8,13 @@ var WIDTH = document.body.clientWidth, HEIGHT = document.body.clientHeight;
 var scene = new THREE.Scene(),
     camera = new THREE.PerspectiveCamera(75, WIDTH / HEIGHT, 0.1, 1000),
     renderer = new THREE.WebGLRenderer({ alpha: true }),
-    light, geometry, material, cubes = [],
+    light= [],
     button = document.querySelector("button#start");
 
+// in three.js, X and Z is the horizontal plane, Y is the vertical.
+
 camera.position.x=0;
-camera.position.y=5;
+camera.position.y=30;  // arbitrary!
 camera.position.z=0;
 
 var floorTex = new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture("images/floor.jpg", null, function() {
@@ -46,7 +45,7 @@ var img1 = new THREE.MeshBasicMaterial({
 img1.map.needsUpdate = true; 
 var frame1 = new THREE.Mesh(new THREE.PlaneGeometry(200, 200),img1);
 frame1.overdraw=true;
-frame1.position.x=120;
+frame1.position.x=200;
 frame1.position.y=20;
 frame1.position.z=0;
 frame1.rotation.y=  (-Math.PI / 2);
@@ -58,7 +57,7 @@ var img2 = new THREE.MeshBasicMaterial({
 img2.map.needsUpdate = true; 
 var frame2 = new THREE.Mesh(new THREE.PlaneGeometry(200, 200),img2);
 frame2.overdraw=true;
-frame2.position.x=-120;
+frame2.position.x=-200;
 frame2.position.y=20;
 frame2.position.z=0;
 frame2.rotation.y= (Math.PI/ 2);
@@ -72,7 +71,7 @@ var frame3 = new THREE.Mesh(new THREE.PlaneGeometry(200, 200),img3);
 frame3.overdraw=true;
 frame3.position.x=0;
 frame3.position.y=20;
-frame3.position.z=140;
+frame3.position.z=200;
 frame3.rotation.y= - Math.PI; 
 scene.add(frame3);
 
@@ -84,9 +83,35 @@ var frame4 = new THREE.Mesh(new THREE.PlaneGeometry(200, 200),img4);
 frame4.overdraw=true;
 frame4.position.x=0;
 frame4.position.y=20;
-frame4.position.z=-140;
+frame4.position.z=-200;
 frame4.rotation.y=0 ; 
 scene.add(frame4);
 
+// OK, let's make us some cameraplane. 
+
+var vidstream=document.createElement('video')
+
+document.body.appendChild(vidstream);
+
+navigator.mediaDevices.getUserMedia( { video: true} ).then(function(stream){ 
+	vidstream.src = URL.createObjectURL(stream);
+	var cameraFeed = new THREE.Texture(vidstream);
+	console.log("Made it here...");
+vidstream.height = 640;
+vidstream.width = 480;
+vidstream.autoplay = true;
+
+//var cameraFeed = new THREE.Texture(vidstream);
+
+var cameraTexture = new THREE.MeshLambertMaterial({   map : cameraFeed });
+var cameraplane = new THREE.Mesh(new THREE.PlaneGeometry(1000,1000),cameraTexture);
+cameraplane.position.x=500;
+cameraplane.position.y=500;
+cameraplane.position.z=0;
+cameraplane.rotation.y=(-Math.PI /2) ; 
+scene.add(cameraplane); },
+	function(error){ 
+		console.log("Failed to get a stream due to", error); 
+});
 
 
